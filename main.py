@@ -29,4 +29,5 @@ def echo_message(message):
     bot.reply_to(message, f"{first_name or username}, {get_message(debt_sum)}")
 
 
-bot.infinity_polling()
+if __name__ == "__main__":
+    bot.infinity_polling()

@@ -1,5 +1,5 @@
-docker build --tag accountant_bot .
-
+docker compose up
+docker compose exec app /bin/sh
 
 python
 
