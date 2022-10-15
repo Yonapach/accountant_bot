@@ -21,8 +21,9 @@ def echo_message(message):
         if first_name := message.from_user.first_name:
             user.first_name = first_name
 
-        add_debt(session=session, amount=amount, user=user)
-        debt_sum = user.debt_sum
+        chat_id = message.chat.id
+        add_debt(session=session, amount=amount, user=user, chat_id=chat_id)
+        debt_sum = user.debt_sum(chat_id=chat_id)
 
         session.commit()
 

@@ -19,12 +19,12 @@ class User(Base):
     first_name = Column(String(100))
     debts = relationship("Debt", back_populates="user")
 
-    @property
-    def debt_sum(self) -> float:
-        return sum([debt.amount for debt in self.debts])
+    def debt_sum(self, chat_id: int) -> float:
+        return sum([debt.amount for debt in self.debts if debt.chat_id == chat_id])
 
 
 class Debt(Base):
     amount = Column(Float, nullable=False)
+    chat_id = Column(Integer, nullable=False)
     user_id = Column(Integer, ForeignKey(User.id), nullable=False)
     user = relationship(User, back_populates="debts")

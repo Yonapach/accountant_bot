@@ -13,8 +13,8 @@ def get_or_create_user(session: Session, username: str) -> User:
     return user
 
 
-def add_debt(session: Session, user: User, amount: float) -> None:
-    session.add(Debt(amount=amount, user=user))
+def add_debt(session: Session, user: User, amount: float, chat_id: int) -> None:
+    session.add(Debt(amount=amount, user=user, chat_id=chat_id))
     session.flush()
 
 
