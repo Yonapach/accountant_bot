@@ -5,7 +5,7 @@ services:
     container_name: "accountant_bot"
     working_dir: /app
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: ./dockerfile
     env_file:
       - ./.env
     volumes:
